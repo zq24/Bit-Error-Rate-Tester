@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Oct 17 21:01:48 2019
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : bert
+Top-level Entity Name : bert
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 764 / 49,760 ( 2 % )
+    Total combinational functions : 692 / 49,760 ( 1 % )
+    Dedicated logic registers : 442 / 49,760 ( < 1 % )
+Total registers : 442
+Total pins : 52 / 360 ( 14 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

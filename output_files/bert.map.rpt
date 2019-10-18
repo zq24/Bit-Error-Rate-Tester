@@ -1,0 +1,630 @@
+Analysis & Synthesis report for bert
+Thu Oct 17 21:01:17 2019
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn31_det:U3|pstate
+  9. State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn15_det:U2|pstate
+ 10. State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn7_det:U1|pstate
+ 11. State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn4_det:U0|pstate
+ 12. State Machine - |bert|bert_detector:U1|fp_detector:U1|pstate
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Oct 17 21:01:17 2019       ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                      ; bert                                        ;
+; Top-level Entity Name              ; bert                                        ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 789                                         ;
+;     Total combinational functions  ; 692                                         ;
+;     Dedicated logic registers      ; 442                                         ;
+; Total registers                    ; 442                                         ;
+; Total pins                         ; 52                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                                      ; bert               ; bert               ;
+; Family name                                                                ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                              ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                                        ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; bert.vhd                         ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/bert.vhd                    ;         ;
+; bert_generator.vhd               ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/bert_generator.vhd          ;         ;
+; pn_four.vhd                      ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/pn_four.vhd                 ;         ;
+; pn_seven.vhd                     ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/pn_seven.vhd                ;         ;
+; pn_fifteen.vhd                   ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/pn_fifteen.vhd              ;         ;
+; pn_thirty_one.vhd                ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/pn_thirty_one.vhd           ;         ;
+; configurable_pn_gen.vhd          ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/configurable_pn_gen.vhd     ;         ;
+; fp_detector.vhd                  ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd             ;         ;
+; pn4_det.vhd                      ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/pn4_det.vhd                 ;         ;
+; pn7_det.vhd                      ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/pn7_det.vhd                 ;         ;
+; pn15_det.vhd                     ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/pn15_det.vhd                ;         ;
+; pn31_det.vhd                     ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/pn31_det.vhd                ;         ;
+; demux.vhd                        ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/demux.vhd                   ;         ;
+; configurable_pn_det.vhd          ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/configurable_pn_det.vhd     ;         ;
+; bert_detector.vhd                ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/bert_detector.vhd           ;         ;
+; error_counter.vhd                ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/error_counter.vhd           ;         ;
+; fixed_pattern_generator.vhd      ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd ;         ;
+; error_injector.vhd               ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/error_injector.vhd          ;         ;
+; mux.vhd                          ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/mux.vhd                     ;         ;
+; debounce.vhd                     ; yes             ; User VHDL File  ; C:/intelFPGA_lite/17.1/BERT/debounce.vhd                ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 789           ;
+;                                             ;               ;
+; Total combinational functions               ; 692           ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 310           ;
+;     -- 3 input functions                    ; 131           ;
+;     -- <=2 input functions                  ; 251           ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 500           ;
+;     -- arithmetic mode                      ; 192           ;
+;                                             ;               ;
+; Total registers                             ; 442           ;
+;     -- Dedicated logic registers            ; 442           ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 52            ;
+;                                             ;               ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; i_rst_l~input ;
+; Maximum fan-out                             ; 516           ;
+; Total fan-out                               ; 3775          ;
+; Average fan-out                             ; 3.05          ;
++---------------------------------------------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                             ; Entity Name             ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------+-------------------------+--------------+
+; |bert                              ; 692 (1)             ; 442 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 52   ; 0            ; 0          ; |bert                                                           ; bert                    ; work         ;
+;    |bert_detector:U1|              ; 472 (4)             ; 275 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1                                          ; bert_detector           ; work         ;
+;       |configurable_pn_det:U2|     ; 159 (0)             ; 160 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|configurable_pn_det:U2                   ; configurable_pn_det     ; work         ;
+;          |pn15_det:U2|             ; 43 (43)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|configurable_pn_det:U2|pn15_det:U2       ; pn15_det                ; work         ;
+;          |pn31_det:U3|             ; 64 (64)             ; 75 (75)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|configurable_pn_det:U2|pn31_det:U3       ; pn31_det                ; work         ;
+;          |pn4_det:U0|              ; 23 (23)             ; 18 (18)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|configurable_pn_det:U2|pn4_det:U0        ; pn4_det                 ; work         ;
+;          |pn7_det:U1|              ; 29 (29)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|configurable_pn_det:U2|pn7_det:U1        ; pn7_det                 ; work         ;
+;       |demux:U0|                   ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|demux:U0                                 ; demux                   ; work         ;
+;       |demux:U4|                   ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|demux:U4                                 ; demux                   ; work         ;
+;       |error_counter:U3|           ; 155 (155)           ; 64 (64)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|error_counter:U3                         ; error_counter           ; work         ;
+;       |fp_detector:U1|             ; 150 (150)           ; 51 (51)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_detector:U1|fp_detector:U1                           ; fp_detector             ; work         ;
+;    |bert_generator:U0|             ; 219 (0)             ; 167 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0                                         ; bert_generator          ; work         ;
+;       |configurable_pn_gen:U2|     ; 57 (0)              ; 57 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|configurable_pn_gen:U2                  ; configurable_pn_gen     ; work         ;
+;          |pn_fifteen:U2|           ; 15 (15)             ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2    ; pn_fifteen              ; work         ;
+;          |pn_four:U0|              ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|configurable_pn_gen:U2|pn_four:U0       ; pn_four                 ; work         ;
+;          |pn_seven:U1|             ; 7 (7)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|configurable_pn_gen:U2|pn_seven:U1      ; pn_seven                ; work         ;
+;          |pn_thirty_one:U3|        ; 31 (31)             ; 31 (31)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3 ; pn_thirty_one           ; work         ;
+;       |debounce:U0|                ; 0 (0)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|debounce:U0                             ; debounce                ; work         ;
+;       |error_injector:U4|          ; 52 (52)             ; 34 (34)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|error_injector:U4                       ; error_injector          ; work         ;
+;       |fixed_pattern_generator:U1| ; 106 (106)           ; 70 (70)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|fixed_pattern_generator:U1              ; fixed_pattern_generator ; work         ;
+;       |mux:U3|                     ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |bert|bert_generator:U0|mux:U3                                  ; mux                     ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------+-------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn31_det:U3|pstate                                       ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+; Name                 ; pstate.LOSS_OF_LOCK ; pstate.PATTERN_LOCK ; pstate.COMPARE ; pstate.GENERATE_SEED ; pstate.IDLE ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+; pstate.IDLE          ; 0                   ; 0                   ; 0              ; 0                    ; 0           ;
+; pstate.GENERATE_SEED ; 0                   ; 0                   ; 0              ; 1                    ; 1           ;
+; pstate.COMPARE       ; 0                   ; 0                   ; 1              ; 0                    ; 1           ;
+; pstate.PATTERN_LOCK  ; 0                   ; 1                   ; 0              ; 0                    ; 1           ;
+; pstate.LOSS_OF_LOCK  ; 1                   ; 0                   ; 0              ; 0                    ; 1           ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn15_det:U2|pstate                                       ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+; Name                 ; pstate.LOSS_OF_LOCK ; pstate.PATTERN_LOCK ; pstate.COMPARE ; pstate.GENERATE_SEED ; pstate.IDLE ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+; pstate.IDLE          ; 0                   ; 0                   ; 0              ; 0                    ; 0           ;
+; pstate.GENERATE_SEED ; 0                   ; 0                   ; 0              ; 1                    ; 1           ;
+; pstate.COMPARE       ; 0                   ; 0                   ; 1              ; 0                    ; 1           ;
+; pstate.PATTERN_LOCK  ; 0                   ; 1                   ; 0              ; 0                    ; 1           ;
+; pstate.LOSS_OF_LOCK  ; 1                   ; 0                   ; 0              ; 0                    ; 1           ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn7_det:U1|pstate                                        ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+; Name                 ; pstate.LOSS_OF_LOCK ; pstate.PATTERN_LOCK ; pstate.COMPARE ; pstate.GENERATE_SEED ; pstate.IDLE ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+; pstate.IDLE          ; 0                   ; 0                   ; 0              ; 0                    ; 0           ;
+; pstate.GENERATE_SEED ; 0                   ; 0                   ; 0              ; 1                    ; 1           ;
+; pstate.COMPARE       ; 0                   ; 0                   ; 1              ; 0                    ; 1           ;
+; pstate.PATTERN_LOCK  ; 0                   ; 1                   ; 0              ; 0                    ; 1           ;
+; pstate.LOSS_OF_LOCK  ; 1                   ; 0                   ; 0              ; 0                    ; 1           ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn4_det:U0|pstate                                        ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+; Name                 ; pstate.LOSS_OF_LOCK ; pstate.PATTERN_LOCK ; pstate.COMPARE ; pstate.GENERATE_SEED ; pstate.IDLE ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+; pstate.IDLE          ; 0                   ; 0                   ; 0              ; 0                    ; 0           ;
+; pstate.GENERATE_SEED ; 0                   ; 0                   ; 0              ; 1                    ; 1           ;
+; pstate.COMPARE       ; 0                   ; 0                   ; 1              ; 0                    ; 1           ;
+; pstate.PATTERN_LOCK  ; 0                   ; 1                   ; 0              ; 0                    ; 1           ;
+; pstate.LOSS_OF_LOCK  ; 1                   ; 0                   ; 0              ; 0                    ; 1           ;
++----------------------+---------------------+---------------------+----------------+----------------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bert|bert_detector:U1|fp_detector:U1|pstate                                                                                                                     ;
++----------------------------+----------------+---------------------+---------------------+----------------------------+---------------------+-----------------------+-------------+
+; Name                       ; pstate.RESTART ; pstate.LOSS_OF_LOCK ; pstate.PATTERN_LOCK ; pstate.WAIT_PATTERN_LENGTH ; pstate.FIND_PATTERN ; pstate.FIND_FIRST_BIT ; pstate.IDLE ;
++----------------------------+----------------+---------------------+---------------------+----------------------------+---------------------+-----------------------+-------------+
+; pstate.IDLE                ; 0              ; 0                   ; 0                   ; 0                          ; 0                   ; 0                     ; 0           ;
+; pstate.FIND_FIRST_BIT      ; 0              ; 0                   ; 0                   ; 0                          ; 0                   ; 1                     ; 1           ;
+; pstate.FIND_PATTERN        ; 0              ; 0                   ; 0                   ; 0                          ; 1                   ; 0                     ; 1           ;
+; pstate.WAIT_PATTERN_LENGTH ; 0              ; 0                   ; 0                   ; 1                          ; 0                   ; 0                     ; 1           ;
+; pstate.PATTERN_LOCK        ; 0              ; 0                   ; 1                   ; 0                          ; 0                   ; 0                     ; 1           ;
+; pstate.LOSS_OF_LOCK        ; 0              ; 1                   ; 0                   ; 0                          ; 0                   ; 0                     ; 1           ;
+; pstate.RESTART             ; 1              ; 0                   ; 0                   ; 0                          ; 0                   ; 0                     ; 1           ;
++----------------------------+----------------+---------------------+---------------------+----------------------------+---------------------+-----------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                               ;
++------------------------------------------------------------------+---------------------------------------------------------------+
+; Register name                                                    ; Reason for Removal                                            ;
++------------------------------------------------------------------+---------------------------------------------------------------+
+; bert_generator:U0|fixed_pattern_generator:U1|length_const[5..30] ; Stuck at GND due to stuck port data_in                        ;
+; bert_generator:U0|error_injector:U4|max_count[1]                 ; Merged with bert_generator:U0|error_injector:U4|max_count[0]  ;
+; bert_generator:U0|error_injector:U4|max_count[3,5..29]           ; Merged with bert_generator:U0|error_injector:U4|max_count[30] ;
+; bert_generator:U0|error_injector:U4|max_count[2]                 ; Merged with bert_generator:U0|error_injector:U4|max_count[4]  ;
+; bert_generator:U0|error_injector:U4|max_count[30]                ; Stuck at GND due to stuck port data_in                        ;
+; bert_detector:U1|fp_detector:U1|pstate.PATTERN_LOCK              ; Merged with bert_detector:U1|fp_detector:U1|o_lock            ;
+; bert_generator:U0|fixed_pattern_generator:U1|length_const[31]    ; Stuck at GND due to stuck port data_in                        ;
+; Total Number of Removed Registers = 57                           ;                                                               ;
++------------------------------------------------------------------+---------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 442   ;
+; Number of registers using Synchronous Clear  ; 97    ;
+; Number of registers using Synchronous Load   ; 5     ;
+; Number of registers using Asynchronous Clear ; 442   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 164   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------+
+; Inverted Register Statistics                                                ;
++-------------------------------------------------------------------+---------+
+; Inverted Register                                                 ; Fan out ;
++-------------------------------------------------------------------+---------+
+; bert_generator:U0|configurable_pn_gen:U2|pn_seven:U1|reg[6]       ; 2       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2|reg[14]    ; 2       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_four:U0|reg[3]        ; 2       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[30] ; 2       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_seven:U1|reg[4]       ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2|reg[12]    ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_four:U0|reg[1]        ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[28] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_seven:U1|reg[2]       ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2|reg[10]    ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[26] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_seven:U1|reg[0]       ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2|reg[8]     ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[24] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2|reg[6]     ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[22] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2|reg[4]     ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[20] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2|reg[2]     ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[18] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2|reg[0]     ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[16] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[14] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[12] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[10] ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[8]  ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[6]  ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[4]  ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[2]  ; 1       ;
+; bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3|reg[0]  ; 1       ;
+; Total number of inverted registers = 30                           ;         ;
++-------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |bert|bert_detector:U1|configurable_pn_det:U2|pn31_det:U3|seed_cnt[1] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |bert|bert_detector:U1|configurable_pn_det:U2|pn31_det:U3|cmp_cnt[21] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |bert|bert_detector:U1|configurable_pn_det:U2|pn15_det:U2|seed_cnt[1] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |bert|bert_detector:U1|configurable_pn_det:U2|pn15_det:U2|cmp_cnt[0]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |bert|bert_detector:U1|configurable_pn_det:U2|pn7_det:U1|seed_cnt[0]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |bert|bert_detector:U1|configurable_pn_det:U2|pn7_det:U1|cmp_cnt[1]   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |bert|bert_detector:U1|configurable_pn_det:U2|pn4_det:U0|seed_cnt[1]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |bert|bert_detector:U1|configurable_pn_det:U2|pn4_det:U0|cmp_cnt[3]   ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |bert|bert_detector:U1|error_counter:U3|count_error[8]                ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |bert|bert_generator:U0|fixed_pattern_generator:U1|length_vary[20]    ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |bert|bert_generator:U0|error_injector:U4|count[9]                    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |bert|bert_detector:U1|fp_detector:U1|data_cnt[1]                     ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |bert|bert_generator:U0|error_injector:U4|max_count[0]                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |bert|bert_detector:U1|error_counter:U3|count_error[0]                ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |bert|bert_detector:U1|fp_detector:U1|pattern_shift[2]                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |bert|bert_detector:U1|configurable_pn_det:U2|pn31_det:U3|nstate      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |bert|bert_detector:U1|configurable_pn_det:U2|pn15_det:U2|nstate      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |bert|bert_detector:U1|configurable_pn_det:U2|pn7_det:U1|nstate       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |bert|bert_detector:U1|configurable_pn_det:U2|pn4_det:U0|nstate       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |bert|bert_detector:U1|fp_detector:U1|nstate                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 52                          ;
+; cycloneiii_ff         ; 442                         ;
+;     CLR               ; 212                         ;
+;     CLR SCLR          ; 66                          ;
+;     ENA CLR           ; 128                         ;
+;     ENA CLR SCLR      ; 31                          ;
+;     ENA CLR SLD       ; 5                           ;
+; cycloneiii_lcell_comb ; 692                         ;
+;     arith             ; 192                         ;
+;         2 data inputs ; 192                         ;
+;     normal            ; 500                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 47                          ;
+;         3 data inputs ; 131                         ;
+;         4 data inputs ; 310                         ;
+;                       ;                             ;
+; Max LUT depth         ; 7.30                        ;
+; Average LUT depth     ; 3.74                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Thu Oct 17 21:00:52 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bert -c bert
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file bert.vhd
+    Info (12022): Found design unit 1: bert-rtl File: C:/intelFPGA_lite/17.1/BERT/bert.vhd Line: 34
+    Info (12023): Found entity 1: bert File: C:/intelFPGA_lite/17.1/BERT/bert.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file tb_bert.vhd
+    Info (12022): Found design unit 1: tb_bert-rtl File: C:/intelFPGA_lite/17.1/BERT/tb_bert.vhd Line: 14
+    Info (12023): Found entity 1: tb_bert File: C:/intelFPGA_lite/17.1/BERT/tb_bert.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file bert_generator.vhd
+    Info (12022): Found design unit 1: bert_generator-rtl File: C:/intelFPGA_lite/17.1/BERT/bert_generator.vhd Line: 30
+    Info (12023): Found entity 1: bert_generator File: C:/intelFPGA_lite/17.1/BERT/bert_generator.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file pn_four.vhd
+    Info (12022): Found design unit 1: pn_four-rtl File: C:/intelFPGA_lite/17.1/BERT/pn_four.vhd Line: 25
+    Info (12023): Found entity 1: pn_four File: C:/intelFPGA_lite/17.1/BERT/pn_four.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file pn_seven.vhd
+    Info (12022): Found design unit 1: pn_seven-rtl File: C:/intelFPGA_lite/17.1/BERT/pn_seven.vhd Line: 25
+    Info (12023): Found entity 1: pn_seven File: C:/intelFPGA_lite/17.1/BERT/pn_seven.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file pn_fifteen.vhd
+    Info (12022): Found design unit 1: pn_fifteen-rtl File: C:/intelFPGA_lite/17.1/BERT/pn_fifteen.vhd Line: 25
+    Info (12023): Found entity 1: pn_fifteen File: C:/intelFPGA_lite/17.1/BERT/pn_fifteen.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file pn_thirty_one.vhd
+    Info (12022): Found design unit 1: pn_thirty_one-rtl File: C:/intelFPGA_lite/17.1/BERT/pn_thirty_one.vhd Line: 25
+    Info (12023): Found entity 1: pn_thirty_one File: C:/intelFPGA_lite/17.1/BERT/pn_thirty_one.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file configurable_pn_gen.vhd
+    Info (12022): Found design unit 1: configurable_pn_gen-rtl File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_gen.vhd Line: 25
+    Info (12023): Found entity 1: configurable_pn_gen File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_gen.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file fp_detector.vhd
+    Info (12022): Found design unit 1: fp_detector-rtl File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 27
+    Info (12023): Found entity 1: fp_detector File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file pn4_det.vhd
+    Info (12022): Found design unit 1: pn4_det-rtl File: C:/intelFPGA_lite/17.1/BERT/pn4_det.vhd Line: 26
+    Info (12023): Found entity 1: pn4_det File: C:/intelFPGA_lite/17.1/BERT/pn4_det.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file pn7_det.vhd
+    Info (12022): Found design unit 1: pn7_det-rtl File: C:/intelFPGA_lite/17.1/BERT/pn7_det.vhd Line: 26
+    Info (12023): Found entity 1: pn7_det File: C:/intelFPGA_lite/17.1/BERT/pn7_det.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file pn15_det.vhd
+    Info (12022): Found design unit 1: pn15_det-rtl File: C:/intelFPGA_lite/17.1/BERT/pn15_det.vhd Line: 26
+    Info (12023): Found entity 1: pn15_det File: C:/intelFPGA_lite/17.1/BERT/pn15_det.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file pn31_det.vhd
+    Info (12022): Found design unit 1: pn31_det-rtl File: C:/intelFPGA_lite/17.1/BERT/pn31_det.vhd Line: 26
+    Info (12023): Found entity 1: pn31_det File: C:/intelFPGA_lite/17.1/BERT/pn31_det.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file demux.vhd
+    Info (12022): Found design unit 1: demux-rtl File: C:/intelFPGA_lite/17.1/BERT/demux.vhd Line: 23
+    Info (12023): Found entity 1: demux File: C:/intelFPGA_lite/17.1/BERT/demux.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file configurable_pn_det.vhd
+    Info (12022): Found design unit 1: configurable_pn_det-rtl File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_det.vhd Line: 26
+    Info (12023): Found entity 1: configurable_pn_det File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_det.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file bert_detector.vhd
+    Info (12022): Found design unit 1: bert_detector-rtl File: C:/intelFPGA_lite/17.1/BERT/bert_detector.vhd Line: 28
+    Info (12023): Found entity 1: bert_detector File: C:/intelFPGA_lite/17.1/BERT/bert_detector.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file error_counter.vhd
+    Info (12022): Found design unit 1: error_counter-rtl File: C:/intelFPGA_lite/17.1/BERT/error_counter.vhd Line: 23
+    Info (12023): Found entity 1: error_counter File: C:/intelFPGA_lite/17.1/BERT/error_counter.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file fixed_pattern_generator.vhd
+    Info (12022): Found design unit 1: fixed_pattern_generator-behavior File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 33
+    Info (12023): Found entity 1: fixed_pattern_generator File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file error_injector.vhd
+    Info (12022): Found design unit 1: error_injector-rtl File: C:/intelFPGA_lite/17.1/BERT/error_injector.vhd Line: 25
+    Info (12023): Found entity 1: error_injector File: C:/intelFPGA_lite/17.1/BERT/error_injector.vhd Line: 11
+Warning (12090): Entity "mux" obtained from "mux.vhd" instead of from Quartus Prime megafunction library File: C:/intelFPGA_lite/17.1/BERT/mux.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
+    Info (12022): Found design unit 1: mux-rtl File: C:/intelFPGA_lite/17.1/BERT/mux.vhd Line: 23
+    Info (12023): Found entity 1: mux File: C:/intelFPGA_lite/17.1/BERT/mux.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
+    Info (12022): Found design unit 1: debounce-rtl File: C:/intelFPGA_lite/17.1/BERT/debounce.vhd Line: 22
+    Info (12023): Found entity 1: debounce File: C:/intelFPGA_lite/17.1/BERT/debounce.vhd Line: 11
+Info (12127): Elaborating entity "bert" for the top level hierarchy
+Info (12128): Elaborating entity "bert_generator" for hierarchy "bert_generator:U0" File: C:/intelFPGA_lite/17.1/BERT/bert.vhd Line: 74
+Info (12128): Elaborating entity "debounce" for hierarchy "bert_generator:U0|debounce:U0" File: C:/intelFPGA_lite/17.1/BERT/bert_generator.vhd Line: 97
+Info (12128): Elaborating entity "fixed_pattern_generator" for hierarchy "bert_generator:U0|fixed_pattern_generator:U1" File: C:/intelFPGA_lite/17.1/BERT/bert_generator.vhd Line: 99
+Warning (10492): VHDL Process Statement warning at fixed_pattern_generator.vhd(67): signal "i_fp_length" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 67
+Info (12128): Elaborating entity "configurable_pn_gen" for hierarchy "bert_generator:U0|configurable_pn_gen:U2" File: C:/intelFPGA_lite/17.1/BERT/bert_generator.vhd Line: 101
+Info (12128): Elaborating entity "pn_four" for hierarchy "bert_generator:U0|configurable_pn_gen:U2|pn_four:U0" File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_gen.vhd Line: 78
+Info (12128): Elaborating entity "pn_seven" for hierarchy "bert_generator:U0|configurable_pn_gen:U2|pn_seven:U1" File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_gen.vhd Line: 80
+Info (12128): Elaborating entity "pn_fifteen" for hierarchy "bert_generator:U0|configurable_pn_gen:U2|pn_fifteen:U2" File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_gen.vhd Line: 82
+Info (12128): Elaborating entity "pn_thirty_one" for hierarchy "bert_generator:U0|configurable_pn_gen:U2|pn_thirty_one:U3" File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_gen.vhd Line: 84
+Info (12128): Elaborating entity "mux" for hierarchy "bert_generator:U0|mux:U3" File: C:/intelFPGA_lite/17.1/BERT/bert_generator.vhd Line: 103
+Info (12128): Elaborating entity "error_injector" for hierarchy "bert_generator:U0|error_injector:U4" File: C:/intelFPGA_lite/17.1/BERT/bert_generator.vhd Line: 105
+Info (12128): Elaborating entity "bert_detector" for hierarchy "bert_detector:U1" File: C:/intelFPGA_lite/17.1/BERT/bert.vhd Line: 76
+Info (12128): Elaborating entity "demux" for hierarchy "bert_detector:U1|demux:U0" File: C:/intelFPGA_lite/17.1/BERT/bert_detector.vhd Line: 93
+Info (12128): Elaborating entity "fp_detector" for hierarchy "bert_detector:U1|fp_detector:U1" File: C:/intelFPGA_lite/17.1/BERT/bert_detector.vhd Line: 95
+Warning (10492): VHDL Process Statement warning at fp_detector.vhd(189): signal "i_pattern" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 189
+Info (12128): Elaborating entity "configurable_pn_det" for hierarchy "bert_detector:U1|configurable_pn_det:U2" File: C:/intelFPGA_lite/17.1/BERT/bert_detector.vhd Line: 97
+Info (12128): Elaborating entity "pn4_det" for hierarchy "bert_detector:U1|configurable_pn_det:U2|pn4_det:U0" File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_det.vhd Line: 85
+Info (12128): Elaborating entity "pn7_det" for hierarchy "bert_detector:U1|configurable_pn_det:U2|pn7_det:U1" File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_det.vhd Line: 87
+Info (12128): Elaborating entity "pn15_det" for hierarchy "bert_detector:U1|configurable_pn_det:U2|pn15_det:U2" File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_det.vhd Line: 89
+Info (12128): Elaborating entity "pn31_det" for hierarchy "bert_detector:U1|configurable_pn_det:U2|pn31_det:U3" File: C:/intelFPGA_lite/17.1/BERT/configurable_pn_det.vhd Line: 91
+Info (12128): Elaborating entity "error_counter" for hierarchy "bert_detector:U1|error_counter:U3" File: C:/intelFPGA_lite/17.1/BERT/bert_detector.vhd Line: 99
+Info (13000): Registers with preset signals will power-up high File: C:/intelFPGA_lite/17.1/BERT/pn_four.vhd Line: 39
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[9]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[9]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[9]~1" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[8]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[8]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[8]~5" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[7]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[7]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[7]~9" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[10]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[10]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[10]~13" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[4]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[4]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[4]~17" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[5]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[5]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[5]~21" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[3]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[3]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[3]~25" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[6]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[6]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[6]~29" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[1]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[1]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[1]~33" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[0]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[0]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[0]~37" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[31]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[31]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[31]~41" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[2]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[2]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[2]~45" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[12]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[12]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[12]~49" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[13]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[13]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[13]~53" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[11]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[11]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[11]~57" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[14]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[14]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[14]~61" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[21]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[21]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[21]~65" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[25]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[25]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[25]~69" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[17]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[17]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[17]~73" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[29]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[29]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[29]~77" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[24]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[24]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[24]~81" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[20]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[20]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[20]~85" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[16]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[16]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[16]~89" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[28]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[28]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[28]~93" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[19]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[19]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[19]~97" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[23]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[23]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[23]~101" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[15]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[15]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[15]~105" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[27]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[27]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[27]~109" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[26]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[26]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[26]~113" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[22]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[22]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[22]~117" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[18]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[18]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[18]~121" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_detector:U1|fp_detector:U1|pattern_shift[30]" is converted into an equivalent circuit using register "bert_detector:U1|fp_detector:U1|pattern_shift[30]~_emulated" and latch "bert_detector:U1|fp_detector:U1|pattern_shift[30]~125" File: C:/intelFPGA_lite/17.1/BERT/fp_detector.vhd Line: 188
+    Warning (13310): Register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[4]" is converted into an equivalent circuit using register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[4]~_emulated" and latch "bert_generator:U0|fixed_pattern_generator:U1|length_vary[4]~1" File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 66
+    Warning (13310): Register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[3]" is converted into an equivalent circuit using register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[3]~_emulated" and latch "bert_generator:U0|fixed_pattern_generator:U1|length_vary[3]~5" File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 66
+    Warning (13310): Register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[2]" is converted into an equivalent circuit using register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[2]~_emulated" and latch "bert_generator:U0|fixed_pattern_generator:U1|length_vary[2]~9" File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 66
+    Warning (13310): Register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[1]" is converted into an equivalent circuit using register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[1]~_emulated" and latch "bert_generator:U0|fixed_pattern_generator:U1|length_vary[1]~13" File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 66
+    Warning (13310): Register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[0]" is converted into an equivalent circuit using register "bert_generator:U0|fixed_pattern_generator:U1|length_vary[0]~_emulated" and latch "bert_generator:U0|fixed_pattern_generator:U1|length_vary[0]~17" File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 66
+Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register bert_detector:U1|error_counter:U3|count_error[0] will power up to Low File: C:/intelFPGA_lite/17.1/BERT/error_counter.vhd Line: 54
+    Critical Warning (18010): Register bert_detector:U1|error_counter:U3|count_error[31] will power up to Low File: C:/intelFPGA_lite/17.1/BERT/error_counter.vhd Line: 54
+    Critical Warning (18010): Register bert_generator:U0|fixed_pattern_generator:U1|length_vary[31] will power up to Low File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 66
+    Critical Warning (18010): Register bert_detector:U1|error_counter:U3|count_data[31] will power up to Low File: C:/intelFPGA_lite/17.1/BERT/error_counter.vhd Line: 36
+    Critical Warning (18010): Register bert_detector:U1|error_counter:U3|count_data[0] will power up to Low File: C:/intelFPGA_lite/17.1/BERT/error_counter.vhd Line: 36
+    Critical Warning (18010): Register bert_generator:U0|fixed_pattern_generator:U1|length_const[31] will power up to Low File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 48
+    Critical Warning (18010): Register bert_generator:U0|fixed_pattern_generator:U1|length_const[0] will power up to Low File: C:/intelFPGA_lite/17.1/BERT/fixed_pattern_generator.vhd Line: 48
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 850 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 48 input pins
+    Info (21059): Implemented 4 output pins
+    Info (21061): Implemented 798 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 50 warnings
+    Info: Peak virtual memory: 655 megabytes
+    Info: Processing ended: Thu Oct 17 21:01:17 2019
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:31
+
+

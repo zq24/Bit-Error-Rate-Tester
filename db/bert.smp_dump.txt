@@ -1,0 +1,42 @@
+
+State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn31_det:U3|pstate
+Name pstate.LOSS_OF_LOCK pstate.PATTERN_LOCK pstate.COMPARE pstate.GENERATE_SEED pstate.IDLE 
+pstate.IDLE 0 0 0 0 0 
+pstate.GENERATE_SEED 0 0 0 1 1 
+pstate.COMPARE 0 0 1 0 1 
+pstate.PATTERN_LOCK 0 1 0 0 1 
+pstate.LOSS_OF_LOCK 1 0 0 0 1 
+
+State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn15_det:U2|pstate
+Name pstate.LOSS_OF_LOCK pstate.PATTERN_LOCK pstate.COMPARE pstate.GENERATE_SEED pstate.IDLE 
+pstate.IDLE 0 0 0 0 0 
+pstate.GENERATE_SEED 0 0 0 1 1 
+pstate.COMPARE 0 0 1 0 1 
+pstate.PATTERN_LOCK 0 1 0 0 1 
+pstate.LOSS_OF_LOCK 1 0 0 0 1 
+
+State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn7_det:U1|pstate
+Name pstate.LOSS_OF_LOCK pstate.PATTERN_LOCK pstate.COMPARE pstate.GENERATE_SEED pstate.IDLE 
+pstate.IDLE 0 0 0 0 0 
+pstate.GENERATE_SEED 0 0 0 1 1 
+pstate.COMPARE 0 0 1 0 1 
+pstate.PATTERN_LOCK 0 1 0 0 1 
+pstate.LOSS_OF_LOCK 1 0 0 0 1 
+
+State Machine - |bert|bert_detector:U1|configurable_pn_det:U2|pn4_det:U0|pstate
+Name pstate.LOSS_OF_LOCK pstate.PATTERN_LOCK pstate.COMPARE pstate.GENERATE_SEED pstate.IDLE 
+pstate.IDLE 0 0 0 0 0 
+pstate.GENERATE_SEED 0 0 0 1 1 
+pstate.COMPARE 0 0 1 0 1 
+pstate.PATTERN_LOCK 0 1 0 0 1 
+pstate.LOSS_OF_LOCK 1 0 0 0 1 
+
+State Machine - |bert|bert_detector:U1|fp_detector:U1|pstate
+Name pstate.RESTART pstate.LOSS_OF_LOCK pstate.PATTERN_LOCK pstate.WAIT_PATTERN_LENGTH pstate.FIND_PATTERN pstate.FIND_FIRST_BIT pstate.IDLE 
+pstate.IDLE 0 0 0 0 0 0 0 
+pstate.FIND_FIRST_BIT 0 0 0 0 0 1 1 
+pstate.FIND_PATTERN 0 0 0 0 1 0 1 
+pstate.WAIT_PATTERN_LENGTH 0 0 0 1 0 0 1 
+pstate.PATTERN_LOCK 0 0 1 0 0 0 1 
+pstate.LOSS_OF_LOCK 0 1 0 0 0 0 1 
+pstate.RESTART 1 0 0 0 0 0 1 
